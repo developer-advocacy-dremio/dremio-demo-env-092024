@@ -19,6 +19,8 @@
 docker exec -it superset superset init
 ```
 
+[Blog on How to Connect Superset to Dremio](https://www.dremio.com/blog/bi-dashboards-101-with-dremio-and-superset/)
+
 Everything should be up and running. You can access the services using the following URLs:
 
 - **Spark/Notebook:** http://localhost:8888
