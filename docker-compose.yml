@@ -118,5 +118,14 @@ services:
     networks:
       intro-network:
 
+  #Superset
+  superset:
+    image: alexmerced/dremio-superset
+    container_name: superset
+    networks:
+      intro-network:
+    ports:
+      - 8088:8088
+
 networks:
   intro-network:
