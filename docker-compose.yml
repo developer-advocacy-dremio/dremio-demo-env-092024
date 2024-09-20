@@ -47,9 +47,7 @@ services:
       mc alias set myminio http://localhost:9000 admin password;
       mc mb myminio/datalake;
       mc mb myminio/datalakehouse;
-      mc mb myminio/warehouse;
-      mc mb myminio/seed;
-      mc cp --recursive /minio-data/ myminio/seed/;
+      mc cp --recursive /minio-data/ myminio/datalake/;
       tail -f /dev/null"
     networks:
       intro-network:
@@ -117,6 +115,8 @@ services:
       - "5435:5432"
     volumes:
       - ./pgseed:/docker-entrypoint-initdb.d/  # Seed data directory
+    networks:
+      intro-network:
 
 networks:
   intro-network:
