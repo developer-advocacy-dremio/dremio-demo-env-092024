@@ -49,7 +49,7 @@ services:
       mc mb myminio/datalakehouse;
       mc mb myminio/warehouse;
       mc mb myminio/seed;
-      mc cp /minio-data/* myminio/seed/;
+      mc cp --recursive /minio-data/ myminio/seed/;
       tail -f /dev/null"
     networks:
       intro-network:
