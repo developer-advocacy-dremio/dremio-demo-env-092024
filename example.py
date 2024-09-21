@@ -9,8 +9,8 @@ login_endpoint = "http://dremio:9047/apiv2/login"
 
 ## Payload for Login
 payload = {
-    "userName": "alexmerced",
-    "password": "Dremio2024"
+    "userName": "dremioUsername",
+    "password": "dremioPassword"
 }
 
 ## Get token from API
@@ -22,22 +22,14 @@ arrow_endpoint="grpc://dremio:32010"
 ## Establish Client
 dremio = DremioConnection(token, arrow_endpoint)
 
-## Query Dremio
+## Query Dremio (update to reflect your env)
 df = dremio.toPandas("""
 SELECT * FROM "@alexmerced".weather
 """)
 
 print(df)
 
-## Query Dremio
-df2 = dremio.toPandas("""
-SELECT * FROM "@alexmerced"."final_order_data";
-""")
-
-print(df)
-
-# Convert the 'date' column to datetime if it's not already in that format
-df['date'] = pd.to_datetime(df['date'], errors='coerce')
+# Code Below Assumes you've converted all the data types on the weather dataset
 
 # Set up the matplotlib figure
 plt.figure(figsize=(12, 6))
